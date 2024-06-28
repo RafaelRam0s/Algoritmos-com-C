@@ -1,0 +1,278 @@
+
+Comentário em linha:
+    //
+
+    O que for escrito depois da barra barra não será contabilizado como código na linha
+
+Comentário em bloco:
+    /* */
+    
+    O que for escrito entre /* e */ não contará como código
+
+Escrever mensagem na tela:
+    printf("[mensagem]");
+    // printf("Hello World!");
+
+Importar a biblioteca:
+    #include <[biblioteca]>
+    // #include <stdio.h>
+
+    ctype.h Utilizado para testar e converter caracteres
+    math.h Define várias funções matemáticas
+    stdio.h Permite realizar operações de entrada/saída
+    stdlib.h
+    Define várias funções de propósito geral como
+    gerenciamento de memória dinâmica, geração de número
+    aleatório, comunicação com o ambiente, aritmética de
+    inteiros, busca, ordenação e conversão
+    string.h Define funções para manipulação de strings
+    time.h Define funções para ler e converter datas e horas
+
+Rodar código:
+    int main() {
+        [código]
+        return 0;
+    }
+
+Caracteres de controle:
+    \a – alerta (beep)
+    \n – nova linha
+    \r – enter (em um printf o que for escrito antes é substituido pelo que for escrito depois do \r, exemplo: print("Teste \r Feito"); terá como saída: " Feito")
+    \t – tabulação (tab)
+    \b – retrocesso (apaga a letra que foi escrita antes de \b)
+    \" – aspas
+    \\ - barra
+    \0 - nulo
+
+Códigos de formatação da função printf
+    %c Caracter ‘a’, ‘k’, ‘p’
+    %d ou %i Inteiro 10, -763
+    %f Ponto flutuante – real 1.56, -9.3
+    %e Notação científica
+    %s Cadeia de caracteres “joaquim”
+    %p hexadecimais
+
+    #include<stdio.h>
+    void main ()
+    {
+        printf ("O numero valido e: %d", 2);
+        // 2
+        printf("O valor em real e: %f", 1.5);
+        // 1.5
+        printf("A letra correta e: %c", 'a');
+        // a
+        printf("O preço e: %.2f", 1234.5681);
+        // 1234.56 (o programa arredonda de 5 para cima com +1)
+        printf("O preço e: %.3f", 1234.5681);
+        // 1234.568
+    }
+
+Tipos primitivos:
+    Numéricos: int e float
+    Caracter: char
+    Lógico: bool
+
+    char: Guarda um caracter - 1 Byte ou seja, 8 bits;
+    int: Guarda um numero inteiro - 2 Bytes - 32768 + 32767;
+    float: Guarda um numero real com certa precisao - 4 Bytes;
+    double: Guarda um numero real com precisao maior que float - 8 Bytes;
+    void: Tipo vazio - vazio.
+    
+    Temos algumas variações destes tipos, que são:
+    unsigned char: caracter sem sinal;
+    long int: numero inteiro, com dominio estendido;
+    unsigned int: numero inteiro positivo;
+    unsigned long int: numero inteiro positivo com dominio estendido.
+    short int: inteiro com dominio reduzido.
+    unsigned short int: inteiro positivo com dominio reduzido.
+
+    Tipo - Bits - Formato - Início - Fim
+    char - 8 - %c - -128 - 127
+    unsigned char - 8 - %c - 0 - 255
+    int - 32 - %d - -2.147.483.648 - 2.147.483.647
+    unsigned int - 32 - %u - 0 - 4.294.967.295
+    long int - 32 - %li - -2.147.483.648 - 2.147.483.647
+    unsigned long int - 32 - %lu - 0 - 4.294.967.295
+    short int - 16 - %hi - -32.768 - 32.767
+    unsigned short int - 16 - %hu - 0 - 65.535
+    float - 32 - %f - (+/−)10−38 - (+/−)1038
+    double - 64 - %lf - (+/−)10−308 - (+/−)10308
+
+Fazer uma constante:
+    #define [nome] [valor]
+    /* #define teste 1 */
+
+Captar resposta do usuários:
+    scanf("[formatação]", &[variável]);
+    /* 
+        int teste = 123;
+        scanf("%d", &teste)
+    */
+
+    // No primeiro parâmetro você informa a formatação da função
+    // O símbolo "&" informa o endereçamento de memória
+
+Atribuir valor em uma variável:
+    [tipo primitivo] [variável];
+    [variável] = [valor do tipo da variável];
+    /* int teste;
+    teste = 123; */
+
+    [tipo primitivo] [variável] = [valor do tipo da variável];
+    /* int teste = 123; */
+
+Biblioteca Matematica:
+    #include <math.h>
+
+    Potenciação:
+        pow([numero], [numero]);
+        // parametro 1 informa o número que será a base
+        // parâmetro 2 informa a quantidade de vezes que o número base será multiplicado
+
+    Raiz quadrada:
+        sqrt([numero])
+
+    floor([numero])
+    // Retorna o primeiro valor float, sem casas decimais, inferior ao número informado
+    
+    ceil([numero])
+    // Retorna o primeiro valor float, sem casas decimais, superior ao número informado
+
+    sin([numero])
+    cos([numero])
+    tag([numero])
+
+    log([numero]) -
+    // Retorna o valor do logaritmo na base 2.
+    log10([numero]) -
+    // Retorna o valor do logaritmo na base 10.
+
+Para colocar palavras do português brasileiro:
+    #include <stdio.h>
+    #include <locale.h>
+
+    int main(void)
+    {
+        setlocale(LC_ALL, "Portuguese");
+        printf("Utilizando caracteres e acentuação da língua portuguesa!");
+        return 0;
+    }
+    
+Para mudar o tipo de dado somente em um momento:
+    Imagine que queremos dividir duas variáveis que são do tipo inteiro, o resultado é em float, mas ao dividir 2 inteiros ele vai retornar inteiro, então para colocar como float temos que colocar um parênteses antes da variável e informar o tipo de dado primitivo que ele irá se tornar:
+    
+    #include <stdio.h>
+
+    int main()
+    {
+        int num1 = 2;
+        int num2 = 3;
+        int calculo1 = num1 / num2;
+        printf("%d", calculo1); // 0
+        
+        int num3 = 4;
+        int num4 = 3;
+        int calculo2 = num3 / num4;
+        printf("\n%d", calculo2); // 1
+        
+        int num5 = 9;
+        int num6 = 5;
+        int calculo3 = num5 / num6;
+        printf("\n%d", calculo3); // 1
+        
+        int num7 = 9;
+        int num8 = 5;
+        float calculo4 = num7 / num8;
+        printf("\n%f", calculo4); // 1.000000
+        
+        float num9 = 9;
+        int num10 = 5;
+        float calculo5 = num9 / num10;
+        printf("\n%f", calculo5); // 1.800000
+        
+        int num11 = 9;
+        float num12 = 5;
+        float calculo6 = num11 / num12;
+        printf("\n%f", calculo6); // 1.800000
+        
+        float num13 = 9;
+        float num14 = 5;
+        int calculo7 = num13 / num14;
+        printf("\n%d", calculo7); // 1
+        
+        int num15 = 9;
+        int num16 = 5;
+        int calculo8 = (float)num15 / (float)num16;
+        printf("\n%d", calculo8); // 1
+        
+        int num17 = 9;
+        int num18 = 5;
+        float calculo9 = (float)num17 / (float)num18;
+        printf("\n%f", calculo9); // 1.800000
+        
+        return 0;
+    }
+
+Como funciona valor unitário:
+    #include <stdio.h>
+
+    int main()
+    {
+        int x = 10;
+        int y = 0, z = 0;
+        
+        y = x++; // associa o valor de "x" na variável "y" e depois faz com que x some +1
+        z = ++x; // Faz com que x some +1 e depois associa "x" na variável "z"
+        
+        printf("x: %d\ny: %d\nz: %d", x, y, z);
+
+        return 0;
+    }
+    
+Biblioteca Booleana:
+    #include<stdbool.h>
+    boll nome_de_variavel = true;
+    boll nome_de_variavel = false;
+
+    == igual
+    != diferente
+    < menor
+    > maior
+    <= menor igual
+    >= maior igual
+    && e
+    || ou
+
+Estrutura condicional:
+    if (true) 
+    {
+        // código a ser executado caso o que estiver escrito entre parênteses seja verdadeiro
+    }
+
+    if ()
+    {
+
+    }
+    else
+    {
+
+    }
+
+Strings:
+    char nome[];
+    scanf("%s", nome);
+
+    char nome_completo;
+    gets(nome_completo);
+
+Switch case break default:
+    
+Strings: 
+    char nome1[6] = {'R', 'a', 'f', 'a', 'e', 'l'};
+    char nome2[] = {'R', 'a', 'f', 'a', 'e', 'l'};
+    char nome3[7] = {"Rafael"};
+    char nome4[] = {"Rafael"};
+    char nome5[] = "Rafael";
+    char nome6[100];
+    
+
